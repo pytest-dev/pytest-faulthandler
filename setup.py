@@ -6,6 +6,9 @@ dependencies = ['pytest>=2.6']
 if sys.version_info < (3, 3):
     dependencies.append('faulthandler')
 
+with open('README.rst') as f:
+    long_description = f.read()
+
 setup(
     name='pytest-faulthandler',
     version='0.1',
@@ -16,6 +19,7 @@ setup(
     author='Bruno Oliveira',
     author_email='nicoddemus@gmail.com',
     description='py.test plugin that activates the fault handler module for tests',
+    long_description=long_description,
     entry_points={
         'pytest11': ['pytest_faulthandler = pytest_faulthandler'],
     },
