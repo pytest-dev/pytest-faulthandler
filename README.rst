@@ -30,6 +30,11 @@ Usage
 The plugin is always active by default, but you can disable it by passing
 ``--no-faulthandler`` to ``py.test``.
 
+``faulthandler`` output is redirect to ``stderr``, but if for some reason you need to output it to
+a file, you can pass ``--faulthandler-file=XXX`` to ``py.test``. Note that this file will not be
+deleted, even if no tests crash. Combining this option with ``pytest_xdist`` will create a file
+for each test runner process, and the node id is appended to the filename.
+
 
 Requirements
 ============
