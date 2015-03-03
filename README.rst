@@ -28,7 +28,7 @@ Usage
 =====
 
 The plugin is always active by default, but you can disable it by passing
-`--no-faulthandler` to `py.test`.
+``--no-faulthandler`` to ``py.test``.
 
 
 Requirements
@@ -36,6 +36,7 @@ Requirements
 
 * Python 2.6+, Python 3.2+
 * pytest
+* faulthandler
 
 
 Install
