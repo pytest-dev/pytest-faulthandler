@@ -16,7 +16,7 @@ Inspired by the
 .. |downloads| image:: http://img.shields.io/pypi/dm/pytest-faulthandler.png
   :target: https://pypi.python.org/pypi/pytest-faulthandler
 
-.. |ci| image:: http://img.shields.io/travis/nicoddemus/pytest-faulthandler.png
+.. |ci| image:: https://api.travis-ci.org/nicoddemus/pytest-faulthandler.svg?branch=master
   :target: https://travis-ci.org/nicoddemus/pytest-faulthandler
 
 .. |python| image:: https://pypip.in/py_versions/pytest-faulthandler/badge.png
