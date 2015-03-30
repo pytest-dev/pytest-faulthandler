@@ -13,10 +13,12 @@ def pytest_addoption(parser):
 def pytest_configure(config):
     if config.getoption('fault_handler'):
         stderr_fd_copy = os.dup(sys.stderr.fileno())
-        stderr_copy = os.fdopen(stderr_fd_copy, 'w')
-        faulthandler.enable(stderr_copy)
+        config.fault_handler_stderr = os.fdopen(stderr_fd_copy, 'w')
+        faulthandler.enable(config.fault_handler_stderr)
 
 
 def pytest_unconfigure(config):
     if config.getoption('fault_handler'):
         faulthandler.disable()
+        config.fault_handler_stderr.close()
+        del config.fault_handler_stderr
