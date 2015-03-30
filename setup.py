@@ -11,7 +11,7 @@ with open('README.rst') as f:
 
 setup(
     name='pytest-faulthandler',
-    version='0.1',
+    version='0.2',
     py_modules=['pytest_faulthandler'],
     url='https://github.com/nicoddemus/pytest-faulthandler',
     license='MIT',
