@@ -48,3 +48,9 @@ Install using `pip <http://pip-installer.org/>`_:
     
     $ pip install pytest-faulthandler
 
+Change Log
+==========
+
+Please consult the `releases page`_.
+
+.. _releases page: https://github.com/nicoddemus/pytest-faulthandler/releases     
