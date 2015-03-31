@@ -16,8 +16,8 @@ Inspired by the
 .. |downloads| image:: http://img.shields.io/pypi/dm/pytest-faulthandler.png
   :target: https://pypi.python.org/pypi/pytest-faulthandler
 
-.. |ci| image:: https://api.travis-ci.org/nicoddemus/pytest-faulthandler.svg?branch=master
-  :target: https://travis-ci.org/nicoddemus/pytest-faulthandler
+.. |ci| image:: https://api.travis-ci.org/pytest-dev/pytest-faulthandler.svg?branch=master
+  :target: https://travis-ci.org/pytest-dev/pytest-faulthandler
 
 .. |python| image:: https://pypip.in/py_versions/pytest-faulthandler/badge.png
   :target: https://pypi.python.org/pypi/pytest-faulthandler/
@@ -53,4 +53,4 @@ Change Log
 
 Please consult the `releases page`_.
 
-.. _releases page: https://github.com/nicoddemus/pytest-faulthandler/releases     
+.. _releases page: https://github.com/pytest-dev/pytest-faulthandler/releases     
