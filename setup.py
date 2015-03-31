@@ -13,7 +13,7 @@ setup(
     name='pytest-faulthandler',
     version='0.2.1',
     py_modules=['pytest_faulthandler'],
-    url='https://github.com/nicoddemus/pytest-faulthandler',
+    url='https://github.com/pytest-dev/pytest-faulthandler',
     license='MIT',
     install_requires=dependencies, 
     author='Bruno Oliveira',
