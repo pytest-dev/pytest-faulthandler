@@ -15,10 +15,5 @@ def pytest_configure(config):
         stderr_fd_copy = os.dup(sys.stderr.fileno())
         config.fault_handler_stderr = os.fdopen(stderr_fd_copy, 'w')
         faulthandler.enable(config.fault_handler_stderr)
+        # we never disable faulthandler after it was enabled, see #3
 
-
-def pytest_unconfigure(config):
-    if config.getoption('fault_handler'):
-        faulthandler.disable()
-        config.fault_handler_stderr.close()
-        del config.fault_handler_stderr
