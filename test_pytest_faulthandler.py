@@ -1,5 +1,5 @@
 import pytest
-
+import sys
 
 pytest_plugins = ['pytester']
 
@@ -48,11 +48,12 @@ def test_disabled(testdir):
         "*1 passed*"
     ])
     assert result.ret == 0
-	
-	
-@pytest.mark.parametrize('enabled', [True, False])    
+
+
+@pytest.mark.parametrize('enabled', [True, False])
+@pytest.mark.skipif(sys.platform.startswith('win'), reason='linux only')
 def test_timeout(testdir, enabled):
-    """Test option to dump tracebacks after a certain timeout.
+    """Test option to dump tracebacks after a certain timeout (linux only).
     If falthandler is disabled, no traceback will be dump.
     """
     testdir.makepyfile('''    
@@ -74,4 +75,16 @@ def test_timeout(testdir, enabled):
     result.stdout.fnmatch_lines([        
         "*1 passed*",
     ])
-    assert result.ret == 0	
+    assert result.ret == 0
+
+
+@pytest.mark.skipif(not sys.platform.startswith('win'), reason='windows only')
+def test_timeout_not_available_windows(testdir):
+    """Test that --faulthandler-timeout option on windows shows an
+    appropriate error message.
+    """
+    result = testdir.runpytest('--faulthandler-timeout=1')
+    result.stderr.fnmatch_lines([
+        "*--faulthandler-timeout not available on windows",
+    ])
+    assert result.ret != 0
