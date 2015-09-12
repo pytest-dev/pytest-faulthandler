@@ -6,6 +6,5 @@ install:
   - pip install tox
 
 script:
-  - python setup.py develop
   - tox
 
