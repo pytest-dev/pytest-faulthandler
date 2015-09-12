@@ -8,7 +8,7 @@ Plugin for pytest that automatically enables the
 Inspired by the
 `nose faulthandler <https://github.com/schlamar/nose-faulthandler>`_ plugin.
 
-|python| |version| |downloads| |ci|
+|python| |version| |downloads| |ci| |appveyor|
 
 .. |version| image:: http://img.shields.io/pypi/v/pytest-faulthandler.png
   :target: https://pypi.python.org/pypi/pytest-faulthandler
@@ -18,6 +18,9 @@ Inspired by the
 
 .. |ci| image:: https://api.travis-ci.org/pytest-dev/pytest-faulthandler.svg?branch=master
   :target: https://travis-ci.org/pytest-dev/pytest-faulthandler
+
+.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/faf052p56ipp1i4u/branch/master?svg=true
+  :target: https://ci.appveyor.com/project/pytestbot/pytest-faulthandler
 
 .. |python| image:: https://pypip.in/py_versions/pytest-faulthandler/badge.png
   :target: https://pypi.python.org/pypi/pytest-faulthandler/
