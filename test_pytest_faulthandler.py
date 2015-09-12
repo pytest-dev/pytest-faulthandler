@@ -66,12 +66,15 @@ def test_timeout(testdir, enabled):
         args.append('--no-faulthandler')
         
     result = testdir.runpytest(*args)
+    tb_output = 'most recent call first'
+    if sys.version_info[:2] == (3, 3):
+        tb_output = 'Thread'
     if enabled:
         result.stderr.fnmatch_lines([
-            "*(most recent call first):",        
+            "*%s*" % tb_output,
         ])
     else:
-        assert 'most recent call first' not in result.stderr.str()
+        assert tb_output not in result.stderr.str()
     result.stdout.fnmatch_lines([        
         "*1 passed*",
     ])
