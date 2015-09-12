@@ -13,7 +13,7 @@ def pytest_addoption(parser):
         '--faulthandler-timeout', type=int, dest='fault_handler_timeout',
         metavar='TIMEOUT', default=0,
         help='Dump the traceback of all threads if a test takes '
-             'more than TIMEOUT seconds to finish (implies --capture=no).\n'
+             'more than TIMEOUT seconds to finish.\n'
              'Not available on Windows.')
 
 
@@ -25,23 +25,20 @@ def pytest_configure(config):
         faulthandler.enable(config.fault_handler_stderr)
         # we never disable faulthandler after it was enabled, see #3
         
-        if config.getoption('fault_handler_timeout', default=0) > 0:
+        if config.getoption('fault_handler_timeout') > 0:
             if sys.platform.startswith('win'):
                 msg = '--faulthandler-timeout not available on windows'
-                raise pytest.UsageError(msg)
-            # must disable output capture otherwise the traceback dump
-            # will be captured
-            capturemanager = config.pluginmanager.getplugin("capturemanager")            
-            capturemanager.reset_capturings()
-            capturemanager._capturing = capturemanager._getcapture('no')
-
+                raise pytest.UsageError(msg)            
+                
 
 @pytest.mark.hookwrapper
 def pytest_runtest_protocol(item):
-    timeout = item.config.getoption('fault_handler_timeout', default=0)
-    if timeout > 0:
+    enabled = item.config.getoption('fault_handler')
+    timeout = item.config.getoption('fault_handler_timeout')
+    if enabled and timeout > 0:
         import faulthandler
-        faulthandler.dump_traceback_later(timeout)
+        stderr = file=item.config.fault_handler_stderr
+        faulthandler.dump_traceback_later(timeout, file=stderr)
         try:
             yield
         finally:

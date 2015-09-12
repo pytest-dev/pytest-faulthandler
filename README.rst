@@ -33,7 +33,7 @@ The plugin is always active by default, but you can disable it by passing
 Options:
 
 * ``--faulthandler-timeout=TIMEOUT``: Dump the traceback of all threads if a
-  test takes more than TIMEOUT seconds to finish (implies --capture=no).
+  test takes more than TIMEOUT seconds to finish.
   Not available on Windows.
 
 
