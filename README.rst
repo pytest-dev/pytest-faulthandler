@@ -30,6 +30,12 @@ Usage
 The plugin is always active by default, but you can disable it by passing
 ``--no-faulthandler`` to ``py.test``.
 
+Options:
+
+* ``--faulthandler-timeout=TIMEOUT``: Dump the traceback of all threads if a
+  test takes more than TIMEOUT seconds to finish (implies --capture=no).
+  Not available on Windows.
+
 
 Requirements
 ============

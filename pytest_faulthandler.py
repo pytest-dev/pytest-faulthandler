@@ -11,9 +11,10 @@ def pytest_addoption(parser):
     
     group.addoption(
         '--faulthandler-timeout', type=int, dest='fault_handler_timeout',
-        default=0, help='Dump the traceback of all threads if a test takes '
-                        'more than timeout seconds to finish '
-                        '(implies --capture=no). Not available on Windows.')
+        metavar='TIMEOUT', default=0,
+        help='Dump the traceback of all threads if a test takes '
+             'more than TIMEOUT seconds to finish (implies --capture=no).\n'
+             'Not available on Windows.')
 
 
 def pytest_configure(config):
@@ -28,6 +29,8 @@ def pytest_configure(config):
             if sys.platform.startswith('win'):
                 msg = '--faulthandler-timeout not available on windows'
                 raise pytest.UsageError(msg)
+            # must disable output capture otherwise the traceback dump
+            # will be captured
             capturemanager = config.pluginmanager.getplugin("capturemanager")            
             capturemanager.reset_capturings()
             capturemanager._capturing = capturemanager._getcapture('no')
