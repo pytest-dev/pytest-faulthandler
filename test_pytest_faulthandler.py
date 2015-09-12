@@ -1,3 +1,6 @@
+import pytest
+
+
 pytest_plugins = ['pytester']
 
 
@@ -45,3 +48,30 @@ def test_disabled(testdir):
         "*1 passed*"
     ])
     assert result.ret == 0
+	
+	
+@pytest.mark.parametrize('enabled', [True, False])    
+def test_timeout(testdir, enabled):
+    """Test option to dump tracebacks after a certain timeout.
+    If falthandler is disabled, no traceback will be dump.
+    """
+    testdir.makepyfile('''    
+    import time
+    def test_timeout():
+        time.sleep(2.0)
+    ''')
+    args = ['--faulthandler-timeout=1']
+    if not enabled:
+        args.append('--no-faulthandler')
+        
+    result = testdir.runpytest(*args)
+    if enabled:
+        result.stderr.fnmatch_lines([
+            "*(most recent call first):",        
+        ])
+    else:
+        assert 'most recent call first' not in result.stderr.str()
+    result.stdout.fnmatch_lines([        
+        "*1 passed*",
+    ])
+    assert result.ret == 0	
