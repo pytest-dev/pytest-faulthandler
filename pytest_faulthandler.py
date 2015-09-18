@@ -37,7 +37,7 @@ def pytest_runtest_protocol(item):
     timeout = item.config.getoption('fault_handler_timeout')
     if enabled and timeout > 0:
         import faulthandler
-        stderr = file=item.config.fault_handler_stderr
+        stderr = item.config.fault_handler_stderr
         faulthandler.dump_traceback_later(timeout, file=stderr)
         try:
             yield
