@@ -54,7 +54,7 @@ def test_disabled(testdir):
 @pytest.mark.skipif(sys.platform.startswith('win'), reason='linux only')
 def test_timeout(testdir, enabled):
     """Test option to dump tracebacks after a certain timeout (linux only).
-    If falthandler is disabled, no traceback will be dumped.
+    If faulthandler is disabled, no traceback will be dumped.
     """
     testdir.makepyfile('''    
     import time
