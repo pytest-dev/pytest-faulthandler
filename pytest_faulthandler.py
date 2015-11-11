@@ -26,16 +26,27 @@ def pytest_configure(config):
         # we never disable faulthandler after it was enabled, see #3
         
         if config.getoption('fault_handler_timeout') > 0:
-            if sys.platform.startswith('win'):
-                msg = '--faulthandler-timeout not available on windows'
-                raise pytest.UsageError(msg)            
-                
+            if not timeout_support_available():
+                message = 'faulthandler timeout support not available on ' \
+                          'this platform'
+                config.warn(code='C1', message=message)
+
+
+def timeout_support_available():
+    """Returns True if the current platform/python support faulthandler
+    timeout.
+    """
+    import faulthandler
+    return hasattr(faulthandler, 'dump_traceback_later') and \
+        hasattr(faulthandler, 'cancel_dump_traceback_later')
+
 
 @pytest.mark.hookwrapper
 def pytest_runtest_protocol(item):
     enabled = item.config.getoption('fault_handler')
     timeout = item.config.getoption('fault_handler_timeout')
-    if enabled and timeout > 0:
+    timeout_supported = timeout_support_available()
+    if enabled and timeout > 0 and timeout_supported:
         import faulthandler
         stderr = item.config.fault_handler_stderr
         faulthandler.dump_traceback_later(timeout, file=stderr)
