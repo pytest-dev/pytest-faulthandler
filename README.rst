@@ -33,7 +33,6 @@ Options:
 
 * ``--faulthandler-timeout=TIMEOUT``: Dump the traceback of all threads if a
   test takes more than TIMEOUT seconds to finish.
-  Not available on Windows.
 
 
 Requirements
@@ -56,6 +55,6 @@ Install using `pip <http://pip-installer.org/>`_:
 Change Log
 ==========
 
-Please consult the `releases page`_.
+Please consult the `CHANGELOG`_.
 
-.. _releases page: https://github.com/pytest-dev/pytest-faulthandler/releases     
+.. _CHANGELOG: https://github.com/pytest-dev/pytest-faulthandler/blob/master/CHANGELOG.rst
