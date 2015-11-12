@@ -1,5 +1,6 @@
 import pytest
 import sys
+from pytest_faulthandler import timeout_support_available
 
 pytest_plugins = ['pytester']
 
@@ -51,7 +52,7 @@ def test_disabled(testdir):
 
 
 @pytest.mark.parametrize('enabled', [True, False])
-@pytest.mark.skipif(sys.platform.startswith('win'), reason='linux only')
+@pytest.mark.skipif(not timeout_support_available(), reason='no timeout support')
 def test_timeout(testdir, enabled):
     """Test option to dump tracebacks after a certain timeout (linux only).
     If faulthandler is disabled, no traceback will be dumped.
@@ -81,13 +82,19 @@ def test_timeout(testdir, enabled):
     assert result.ret == 0
 
 
-@pytest.mark.skipif(not sys.platform.startswith('win'), reason='windows only')
-def test_timeout_not_available_windows(testdir):
-    """Test that --faulthandler-timeout option on windows shows an
-    appropriate error message.
+@pytest.mark.skipif(timeout_support_available(), reason='timeout available')
+def test_timeout_not_available(testdir):
+    """Test that --faulthandler-timeout option on shows a warning on
+    platforms that don't support it (#8).
     """
-    result = testdir.runpytest('--faulthandler-timeout=1')
-    result.stderr.fnmatch_lines([
-        "*--faulthandler-timeout not available on windows",
+    testdir.makepyfile('''
+        def test_dummy():
+            pass
+    ''')
+    result = testdir.runpytest('--faulthandler-timeout=5', '-rw')
+    result.stdout.fnmatch_lines([
+        '*pytest-warning summary*',
+        "*WC1*faulthandler timeout support not available on this platform*",
+        '*= 1 passed, 1 pytest-warnings in *',
     ])
-    assert result.ret != 0
+    assert result.ret == 0
