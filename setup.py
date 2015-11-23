@@ -11,6 +11,7 @@ setup(
     url='https://github.com/pytest-dev/pytest-faulthandler',
     license='MIT',
     install_requires=['pytest>=2.6'],
+    test_requires=['pytest-mock>=0.6'],
     author='Bruno Oliveira',
     author_email='nicoddemus@gmail.com',
     description='py.test plugin that activates the fault handler module for tests',

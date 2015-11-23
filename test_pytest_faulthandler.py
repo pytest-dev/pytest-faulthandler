@@ -101,22 +101,16 @@ def test_timeout_not_available(testdir):
 
 
 @pytest.mark.skipif(not timeout_support_available(), reason='no timeout support')
-def test_cancel_timeout_on_pdb(monkeypatch, pytestconfig):
+def test_cancel_timeout_on_pdb(mocker, pytestconfig):
     """Make sure that we are cancelling any scheduled traceback dumping due
     to timeout before entering pdb (#12).
     """
     import faulthandler
     from pytest_faulthandler import pytest_enter_pdb
 
-    called = []
-    original = faulthandler.cancel_dump_traceback_later
-    def cancel_dump():
-        called.append(True)
-        original()
-    monkeypatch.setattr(faulthandler, 'cancel_dump_traceback_later',
-                        cancel_dump)
+    m = mocker.spy(faulthandler, 'cancel_dump_traceback_later')
 
     # call our hook explicitly, we can trust that pytest will call the hook
     # for us at the appropriate moment
     pytest_enter_pdb()
-    assert called == [True]
+    assert m.call_count == 1
