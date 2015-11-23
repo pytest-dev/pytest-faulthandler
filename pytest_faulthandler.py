@@ -56,3 +56,11 @@ def pytest_runtest_protocol(item):
             faulthandler.cancel_dump_traceback_later()
     else:
         yield
+
+
+def pytest_enter_pdb():
+    """Cancel any traceback dumping due to timeout before entering pdb.
+    """
+    if timeout_support_available():
+        import faulthandler
+        faulthandler.cancel_dump_traceback_later()
