@@ -1,3 +1,11 @@
+1.2.0.dev
+---------
+
+* Now traceback dumping due to a timeout is cancelled when entering
+  ``pdb``. Thanks to `@The-Compiler`_ for the request (`#12`_).
+
+.. _#12: https://github.com/pytest-dev/pytest-faulthandler/issues/12
+
 1.1.0
 -----
 
