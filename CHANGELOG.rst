@@ -1,5 +1,5 @@
-1.2.0.dev
----------
+1.2.0
+-----
 
 * Now traceback dumping due to a timeout is cancelled when entering
   ``pdb``. Thanks to `@The-Compiler`_ for the request (`#12`_).
