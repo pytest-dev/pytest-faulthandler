@@ -1,3 +1,12 @@
+1.3.0
+-----
+
+* Now traceback dumping due to an interactive exception is raised (`#14`_).
+  Thanks to `@flub`_ for the request.
+
+.. _#14: https://github.com/pytest-dev/pytest-faulthandler/issues/14
+
+
 1.2.0
 -----
 
@@ -42,3 +51,4 @@ First public release
 
 
 .. _@The-Compiler: https://github.com/The-Compiler
+.. _@flub: https://github.com/flub

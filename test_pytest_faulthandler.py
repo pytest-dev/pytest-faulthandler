@@ -101,16 +101,20 @@ def test_timeout_not_available(testdir):
 
 
 @pytest.mark.skipif(not timeout_support_available(), reason='no timeout support')
-def test_cancel_timeout_on_pdb(mocker, pytestconfig):
+@pytest.mark.parametrize('hook_name', ['pytest_enter_pdb',
+                                       'pytest_exception_interact'])
+def test_cancel_timeout_on_hook(mocker, pytestconfig, hook_name):
     """Make sure that we are cancelling any scheduled traceback dumping due
-    to timeout before entering pdb (#12).
+    to timeout before entering pdb (#12) or any other interactive
+    exception (#14).
     """
     import faulthandler
-    from pytest_faulthandler import pytest_enter_pdb
+    import pytest_faulthandler
 
     m = mocker.spy(faulthandler, 'cancel_dump_traceback_later')
 
     # call our hook explicitly, we can trust that pytest will call the hook
     # for us at the appropriate moment
-    pytest_enter_pdb()
+    hook_func = getattr(pytest_faulthandler, hook_name)
+    hook_func()
     assert m.call_count == 1
