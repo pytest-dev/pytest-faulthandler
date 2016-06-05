@@ -3,7 +3,7 @@ pytest-faulthandler
 ===================
 
 Plugin for pytest that automatically enables the
-`faulthandler <http://faulthandler.readthedocs.org/>`_ module during tests.
+`faulthandler <https://faulthandler.readthedocs.io/>`_ module during tests.
 
 Inspired by the
 `nose faulthandler <https://github.com/schlamar/nose-faulthandler>`_ plugin.
