@@ -1,3 +1,11 @@
+1.3.1
+-----
+
+* Fix compatibility with xdist's looponfail mode (`#19`_).
+  Patch by `@mhils`_.
+
+.. _#19: https://github.com/pytest-dev/pytest-faulthandler/issues/19
+
 1.3.0
 -----
 
@@ -52,3 +60,4 @@ First public release
 
 .. _@The-Compiler: https://github.com/The-Compiler
 .. _@flub: https://github.com/flub
+.. _@mhils: https://github.com/mhils
