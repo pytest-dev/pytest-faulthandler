@@ -20,7 +20,13 @@ def pytest_addoption(parser):
 def pytest_configure(config):
     if config.getoption('fault_handler'):
         import faulthandler
-        stderr_fd_copy = os.dup(sys.stderr.fileno())
+        if hasattr(sys.stderr, "fileno"):
+            stderr_fd_copy = os.dup(sys.stderr.fileno())
+        else:
+            # python-xdist monkeypatches sys.stderr with an object that is not an actual file.
+            # https://docs.python.org/3/library/faulthandler.html#issue-with-file-descriptors
+            # This is potentially dangerous, but the best we can do.
+            stderr_fd_copy = os.dup(sys.__stderr__.fileno())
         config.fault_handler_stderr = os.fdopen(stderr_fd_copy, 'w')
         faulthandler.enable(config.fault_handler_stderr)
         # we never disable faulthandler after it was enabled, see #3
