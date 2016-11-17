@@ -8,12 +8,9 @@ Plugin for pytest that automatically enables the
 Inspired by the
 `nose faulthandler <https://github.com/schlamar/nose-faulthandler>`_ plugin.
 
-|python| |version| |downloads| |ci| |appveyor|
+|python| |version| |anaconda| |ci| |appveyor| 
 
 .. |version| image:: http://img.shields.io/pypi/v/pytest-faulthandler.png
-  :target: https://pypi.python.org/pypi/pytest-faulthandler
-  
-.. |downloads| image:: http://img.shields.io/pypi/dm/pytest-faulthandler.png
   :target: https://pypi.python.org/pypi/pytest-faulthandler
 
 .. |ci| image:: https://api.travis-ci.org/pytest-dev/pytest-faulthandler.svg?branch=master
@@ -24,6 +21,9 @@ Inspired by the
   
 .. |python| image:: https://img.shields.io/pypi/pyversions/pytest-faulthandler.svg
     :target: https://pypi.python.org/pypi/pytest-faulthandler
+    
+.. |anaconda| image:: https://anaconda.org/conda-forge/pytest-faulthandler/badges/version.svg
+    :target: https://anaconda.org/conda-forge/pytest-faulthandler
 
 
 Usage
@@ -41,7 +41,7 @@ Options:
 Requirements
 ============
 
-* Python 2.7+, Python 3.4+
+* Python 2.6+, Python 3.3+
 * pytest
 * faulthandler
 
