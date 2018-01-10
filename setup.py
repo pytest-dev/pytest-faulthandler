@@ -14,10 +14,11 @@ setup(
     test_requires=['pytest-mock>=0.6'],
     author='Bruno Oliveira',
     author_email='nicoddemus@gmail.com',
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     description='py.test plugin that activates the fault handler module for tests',
     long_description=long_description,
     extras_require={
-        ':python_version=="2.6" or python_version=="2.7"': ['faulthandler'],
+        ':python_version=="2.7"': ['faulthandler'],
     },
     entry_points={
         'pytest11': ['pytest_faulthandler = pytest_faulthandler'],
@@ -29,10 +30,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',

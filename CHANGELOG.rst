@@ -1,3 +1,8 @@
+1.4.0 (unreleased)
+------------------
+
+* Drop support for Python 2.6 and Python 3.3.
+
 1.3.1
 -----
 

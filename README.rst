@@ -41,7 +41,7 @@ Options:
 Requirements
 ============
 
-* Python 2.6+, Python 3.3+
+* Python 2.7+, Python 3.4+
 * pytest
 * faulthandler
 
