@@ -6,12 +6,13 @@ with open('README.rst') as f:
 
 setup(
     name='pytest-faulthandler',
-    version='1.3.1',
+    use_scm_version=True,
     py_modules=['pytest_faulthandler'],
     url='https://github.com/pytest-dev/pytest-faulthandler',
     license='MIT',
     install_requires=['pytest>=2.6'],
     test_requires=['pytest-mock>=0.6'],
+    setup_requires=['setuptools_scm'],
     author='Bruno Oliveira',
     author_email='nicoddemus@gmail.com',
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
