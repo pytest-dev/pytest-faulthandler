@@ -2,6 +2,10 @@
 ------------------
 
 * Drop support for Python 2.6 and Python 3.3.
+* Fix crash when using pytester in default mode with newer pytest versions (`#24`_).
+  Thanks `@njsmith`_ for the patch.
+
+.. _#24: https://github.com/pytest-dev/pytest-faulthandler/pull/24
 
 1.3.1
 -----
@@ -63,6 +67,7 @@ PR by `@The-Compiler`_. Many thanks!
 First public release
 
 
-.. _@The-Compiler: https://github.com/The-Compiler
 .. _@flub: https://github.com/flub
 .. _@mhils: https://github.com/mhils
+.. _@njsmith: https://github.com/njsmith
+.. _@The-Compiler: https://github.com/The-Compiler
