@@ -1,6 +1,7 @@
 import sys
 import os
 import pytest
+import io
 
 
 def pytest_addoption(parser):
@@ -20,13 +21,14 @@ def pytest_addoption(parser):
 def pytest_configure(config):
     if config.getoption('fault_handler'):
         import faulthandler
-        if hasattr(sys.stderr, "fileno"):
-            stderr_fd_copy = os.dup(sys.stderr.fileno())
-        else:
+        try:
+            stderr_fileno = sys.stderr.fileno()
+        except (AttributeError, io.UnsupportedOperation):
             # python-xdist monkeypatches sys.stderr with an object that is not an actual file.
             # https://docs.python.org/3/library/faulthandler.html#issue-with-file-descriptors
             # This is potentially dangerous, but the best we can do.
-            stderr_fd_copy = os.dup(sys.__stderr__.fileno())
+            stderr_fileno = sys.__stderr__.fileno()
+        stderr_fd_copy = os.dup(stderr_fileno)
         config.fault_handler_stderr = os.fdopen(stderr_fd_copy, 'w')
         faulthandler.enable(config.fault_handler_stderr)
         # we never disable faulthandler after it was enabled, see #3
