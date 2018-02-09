@@ -1,11 +1,16 @@
-1.4.0 (unreleased)
-------------------
+1.4.1
+-----
 
 * Drop support for Python 2.6 and Python 3.3.
 * Fix crash when using pytester in default mode with newer pytest versions (`#24`_).
   Thanks `@njsmith`_ for the patch.
 
 .. _#24: https://github.com/pytest-dev/pytest-faulthandler/pull/24
+
+1.4.0
+-----
+
+* Botched release, never published to PyPI.
 
 1.3.1
 -----
