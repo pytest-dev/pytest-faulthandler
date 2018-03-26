@@ -1,3 +1,10 @@
+1.5.0
+-----
+
+* Support installation in PyPy (`#28`_). Thanks `@lazka`_ for the PR.
+
+.. _#28: https://github.com/pytest-dev/pytest-faulthandler/pull/28
+
 1.4.1
 -----
 
@@ -40,12 +47,12 @@
 1.1.0
 -----
 
-* ``--faulthandler-timeout`` option is now properly supported in Python 3+; 
-  also a warning is issued instead of an error on platforms without a 
+* ``--faulthandler-timeout`` option is now properly supported in Python 3+;
+  also a warning is issued instead of an error on platforms without a
   ``faulthandler.dump_traceback_later`` function (`#8`_).
-   
-   
-.. _#8: https://github.com/pytest-dev/pytest-faulthandler/issues/8   
+
+
+.. _#8: https://github.com/pytest-dev/pytest-faulthandler/issues/8
 
 
 1.0.1
@@ -62,7 +69,7 @@ First 1.0 release.
 0.2
 ----
 
-Now properly closing the stream used by the fault handler, thanks to complete 
+Now properly closing the stream used by the fault handler, thanks to complete
 PR by `@The-Compiler`_. Many thanks!
 
 
@@ -73,6 +80,7 @@ First public release
 
 
 .. _@flub: https://github.com/flub
+.. _@lazka: https://github.com/lazka
 .. _@mhils: https://github.com/mhils
 .. _@njsmith: https://github.com/njsmith
 .. _@The-Compiler: https://github.com/The-Compiler
