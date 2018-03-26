@@ -19,7 +19,7 @@ setup(
     description='py.test plugin that activates the fault handler module for tests',
     long_description=long_description,
     extras_require={
-        ':python_version=="2.7"': ['faulthandler'],
+        ':python_version=="2.7" and platform_python_implementation != "PyPy"': ['faulthandler'],
     },
     entry_points={
         'pytest11': ['pytest_faulthandler = pytest_faulthandler'],
