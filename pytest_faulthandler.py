@@ -49,7 +49,7 @@ def timeout_support_available():
         hasattr(faulthandler, 'cancel_dump_traceback_later')
 
 
-@pytest.mark.hookwrapper
+@pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_protocol(item):
     enabled = item.config.getoption('fault_handler')
     timeout = item.config.getoption('fault_handler_timeout')
