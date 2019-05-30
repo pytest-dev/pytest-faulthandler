@@ -1,3 +1,8 @@
+1.6.0
+-----
+
+* pytest 4.0+ is now required.
+
 1.5.0
 -----
 

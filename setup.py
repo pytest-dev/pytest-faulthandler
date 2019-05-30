@@ -10,7 +10,7 @@ setup(
     py_modules=['pytest_faulthandler'],
     url='https://github.com/pytest-dev/pytest-faulthandler',
     license='MIT',
-    install_requires=['pytest>=2.6'],
+    install_requires=['pytest>=4.0'],
     test_requires=['pytest-mock>=0.6'],
     setup_requires=['setuptools_scm'],
     author='Bruno Oliveira',
