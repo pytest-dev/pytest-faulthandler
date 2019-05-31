@@ -1,6 +1,6 @@
 install:
   - C:\Python36\python -m pip install --upgrade pip
-  - C:\Python36\python -m pip install tox
+  - C:\Python36\python -m pip install --upgrade tox virtualenv
 
 build: false  # Not a C# project
 
