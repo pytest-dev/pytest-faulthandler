@@ -43,7 +43,7 @@ Requirements
 
 * Python 2.7+, Python 3.4+
 * pytest
-* faulthandler
+* faulthandler (Python 2.7)
 
 
 Install

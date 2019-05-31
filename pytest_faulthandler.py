@@ -1,7 +1,9 @@
-import sys
-import os
-import pytest
 import io
+import os
+import sys
+import warnings
+
+import pytest
 
 
 def pytest_addoption(parser):
@@ -32,12 +34,12 @@ def pytest_configure(config):
         config.fault_handler_stderr = os.fdopen(stderr_fd_copy, 'w')
         faulthandler.enable(config.fault_handler_stderr)
         # we never disable faulthandler after it was enabled, see #3
-        
-        if config.getoption('fault_handler_timeout') > 0:
-            if not timeout_support_available():
-                message = 'faulthandler timeout support not available on ' \
-                          'this platform'
-                config.warn(code='C1', message=message)
+
+
+def pytest_report_header(config):
+    if config.getoption('fault_handler_timeout') > 0:
+        if not timeout_support_available():
+            return 'faulthandler: timeout support not available on this platform'
 
 
 def timeout_support_available():
@@ -49,7 +51,7 @@ def timeout_support_available():
         hasattr(faulthandler, 'cancel_dump_traceback_later')
 
 
-@pytest.mark.hookwrapper
+@pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_protocol(item):
     enabled = item.config.getoption('fault_handler')
     timeout = item.config.getoption('fault_handler_timeout')

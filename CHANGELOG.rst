@@ -1,3 +1,13 @@
+1.6.0
+-----
+
+* The warning about fault-handler timeout not being supported in some platforms
+  has been moved to the section header (`#32`_).
+
+* pytest 4.0+ is now required.
+
+.. _#32: https://github.com/pytest-dev/pytest-faulthandler/issues/32
+
 1.5.0
 -----
 

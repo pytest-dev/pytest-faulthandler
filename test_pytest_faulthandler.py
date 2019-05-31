@@ -93,9 +93,7 @@ def test_timeout_not_available(testdir):
     ''')
     result = testdir.runpytest('--faulthandler-timeout=5', '-rw')
     result.stdout.fnmatch_lines([
-        '*warnings summary*',
-        "*faulthandler timeout support not available on this platform*",
-        '*= 1 passed, 1 warnings in *',
+        "faulthandler: timeout support not available on this platform",
     ])
     assert result.ret == 0
 
