@@ -2,6 +2,11 @@
 pytest-faulthandler
 ===================
 
+.. note::
+
+    This plugin is now part of pytest core since pytest 5.0, so users should not install 
+    this plugin together with that pytest version.
+
 Plugin for pytest that automatically enables the
 `faulthandler <https://faulthandler.readthedocs.io/>`_ module during tests.
 
