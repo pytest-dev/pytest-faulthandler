@@ -1,23 +1,11 @@
 language: python
 dist: xenial
-python:
-  - '2.7'
-  - '3.4'
-  - '3.5'
-  - '3.6'
-  - '3.7'
-  - 'pypy'
-  - 'pypy3'
-  - '3.8-dev'
-install:
-  - pip install --upgrade pip
-  - pip install tox-travis
-script:
-  - tox
+
+install: skip
+
+script: skip
 
 stages:
-- name: test
-  if: repo = pytest-dev/pytest-faulthandler AND tag IS NOT present
 - name: deploy
   if: repo = pytest-dev/pytest-faulthandler AND tag IS present
 
@@ -34,11 +22,11 @@ jobs:
       deploy:
         provider: pypi
         user: nicoddemus
-        distributions: sdist bdist_wheel  
+        distributions: sdist bdist_wheel
         skip_upload_docs: true
         password:
           secure: QK8ibmCJZeyO9Homs0BljGKNXVQFicw9YhOBozofYZRxexVjUqCGr78BfXPvLcBuAnHcM0XCuzQOMaBIS1T5gi5jiF/hZXxtLfIdzZoxxBTyHyVV6quhzjXJsWC9ILT3GXmhhGiY/eJLCJbPn//uFeEAPYxKST2ANBoxieAfuko=
         on:
           tags: true
           repo: pytest-dev/pytest-faulthandler
-  
+

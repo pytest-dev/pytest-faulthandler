@@ -2,10 +2,6 @@
 pytest-faulthandler
 ===================
 
-.. note::
-
-    This plugin is now part of pytest core since pytest 5.0, so users should not install 
-    this plugin together with that pytest version.
 
 Plugin for pytest that automatically enables the
 `faulthandler <https://faulthandler.readthedocs.io/>`_ module during tests.
@@ -13,22 +9,9 @@ Plugin for pytest that automatically enables the
 Inspired by the
 `nose faulthandler <https://github.com/schlamar/nose-faulthandler>`_ plugin.
 
-|python| |version| |anaconda| |ci| |appveyor| 
+**This plugin is now part of pytest core since pytest 5.0, so users should not install this plugin together with that pytest version.**
 
-.. |version| image:: http://img.shields.io/pypi/v/pytest-faulthandler.png
-  :target: https://pypi.python.org/pypi/pytest-faulthandler
-
-.. |ci| image:: https://api.travis-ci.org/pytest-dev/pytest-faulthandler.svg?branch=master
-  :target: https://travis-ci.org/pytest-dev/pytest-faulthandler
-
-.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/faf052p56ipp1i4u/branch/master?svg=true
-  :target: https://ci.appveyor.com/project/pytestbot/pytest-faulthandler
-  
-.. |python| image:: https://img.shields.io/pypi/pyversions/pytest-faulthandler.svg
-    :target: https://pypi.python.org/pypi/pytest-faulthandler
-    
-.. |anaconda| image:: https://anaconda.org/conda-forge/pytest-faulthandler/badges/version.svg
-    :target: https://anaconda.org/conda-forge/pytest-faulthandler
+**Version 2.0.0 of this package is a dummy package for pytest 5.0 compatibility**.
 
 
 Usage
@@ -57,7 +40,7 @@ Install
 Install using `pip <http://pip-installer.org/>`_:
 
 .. code-block:: console
-    
+
     $ pip install pytest-faulthandler
 
 Change Log
