@@ -1,3 +1,15 @@
+2.0.0
+-----
+
+* This release is a dummy package requiring pytest 5.0: this plugin has
+  been integrated into pytest 5.0, so this plugin should no longer
+  be required (`#36`_).
+
+  Maintenance also has been moved to pytest core.
+
+.. _#36: https://github.com/pytest-dev/pytest-faulthandler/issues/36
+
+
 1.6.0
 -----
 

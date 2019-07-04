@@ -6,36 +6,21 @@ with open('README.rst') as f:
 
 setup(
     name='pytest-faulthandler',
-    use_scm_version=True,
-    py_modules=['pytest_faulthandler'],
+    version="2.0.0",
     url='https://github.com/pytest-dev/pytest-faulthandler',
     license='MIT',
-    install_requires=['pytest>=4.0,<5.0'],
-    test_requires=['pytest-mock>=0.6'],
-    setup_requires=['setuptools_scm'],
+    install_requires=['pytest>=5.0'],
     author='Bruno Oliveira',
     author_email='nicoddemus@gmail.com',
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
-    description='py.test plugin that activates the fault handler module for tests',
+    description='py.test plugin that activates the fault handler module for tests (dummy package)',
     long_description=long_description,
-    extras_require={
-        ':python_version=="2.7" and platform_python_implementation != "PyPy"': ['faulthandler'],
-    },
-    entry_points={
-        'pytest11': ['pytest_faulthandler = pytest_faulthandler'],
-    },
     keywords='pytest faulthandler',
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 7 - Inactive',
         'Framework :: Pytest',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
         'Topic :: Software Development :: Testing',
     ]
 )
