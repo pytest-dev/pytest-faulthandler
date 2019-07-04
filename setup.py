@@ -6,7 +6,7 @@ with open('README.rst') as f:
 
 setup(
     name='pytest-faulthandler',
-    version="2.0.0",
+    version="2.0.1",
     url='https://github.com/pytest-dev/pytest-faulthandler',
     license='MIT',
     install_requires=['pytest>=5.0'],
@@ -16,7 +16,7 @@ setup(
     long_description=long_description,
     keywords='pytest faulthandler',
     classifiers=[
-        'Development Status :: 7 - Inactive',
+        'Development Status :: 6 - Mature',
         'Framework :: Pytest',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
