@@ -4,7 +4,7 @@ pytest-faulthandler
 
 
 Plugin for pytest that automatically enables the
-`faulthandler <https://faulthandler.readthedocs.io/>`_ module during tests.
+`faulthandler <https://docs.python.org/3/library/faulthandler.html>`_ module during tests.
 
 Inspired by the
 `nose faulthandler <https://github.com/schlamar/nose-faulthandler>`_ plugin.
